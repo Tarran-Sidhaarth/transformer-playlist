@@ -30,6 +30,7 @@ class AttentionHead:
             A tensor of shape (context_length, head_dimension) after applying
             softmax-weighted aggregation of the value vectors.
         """
+        return torch.zeros()
         
         
 
@@ -60,6 +61,7 @@ class MultiHeadAttention:
             A tensor of shape (context_length, embedding_dimension) after
             concatenating all head outputs and applying the W0 projection.
         """
+        return torch.zeros()
 
 
 

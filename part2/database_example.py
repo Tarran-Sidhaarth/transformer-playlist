@@ -15,6 +15,7 @@ def get_distance(new_point: Schema,data_points: list[Schema]) -> list:
     Returns:
         A list of floats where each element is abs(new_point.weight - point.weight).
     """
+    return []
 
 def get_similarity(distances: list) -> list:
     """
@@ -26,7 +27,7 @@ def get_similarity(distances: list) -> list:
     Returns:
         A list of floats where each element is 1 / distance.
     """
-    
+    return []
 
 def get_coefficients(similarity_score:list) -> list:
     """
@@ -39,6 +40,7 @@ def get_coefficients(similarity_score:list) -> list:
         A list of floats (coefficients) where each element is
         similarity / sum(similarity_score).
     """
+    return []
 
 def get_weighted_price(new_point: Schema, data_points: list[Schema]):
     """
@@ -51,7 +53,7 @@ def get_weighted_price(new_point: Schema, data_points: list[Schema]):
     Returns:
         A float representing the weighted average price across all data points.
     """
-
+    return []
 
 
 
