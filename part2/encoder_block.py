@@ -84,7 +84,6 @@ class Encoder(nn.Module):
         return X
 
 
-
 batch_size = 2
 X = torch.randn(batch_size, CONTEXT_LENGTH, EMBEDDING_DIMENSION)
 
