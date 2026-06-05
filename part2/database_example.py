@@ -15,7 +15,13 @@ def get_distance(new_point: Schema,data_points: list[Schema]) -> list:
     Returns:
         A list of floats where each element is abs(new_point.weight - point.weight).
     """
-    return []
+    distances = []
+    for point in data_points:
+        distance = abs(new_point.weight - point.weight)
+        distances.append(distance)
+
+    print("Distances: ", distances)
+    return distances
 
 def get_similarity(distances: list) -> list:
     """
@@ -27,7 +33,13 @@ def get_similarity(distances: list) -> list:
     Returns:
         A list of floats where each element is 1 / distance.
     """
-    return []
+    similarity_score = []
+    for distance in distances:
+        similarity = 1/distance
+        similarity_score.append(similarity)
+
+    print("Similarity: ", similarity_score)
+    return similarity_score
 
 def get_coefficients(similarity_score:list) -> list:
     """
@@ -40,7 +52,18 @@ def get_coefficients(similarity_score:list) -> list:
         A list of floats (coefficients) where each element is
         similarity / sum(similarity_score).
     """
-    return []
+
+    coeffs = []
+    total_similarity = 0.0
+
+    for value in similarity_score:
+        total_similarity+=value
+    
+    for value in similarity_score:
+        coeffs.append(value/total_similarity)
+
+    print("Coefficients: ",coeffs)
+    return coeffs
 
 def get_weighted_price(new_point: Schema, data_points: list[Schema]):
     """
@@ -53,28 +76,21 @@ def get_weighted_price(new_point: Schema, data_points: list[Schema]):
     Returns:
         A float representing the weighted average price across all data points.
     """
-    return []
+
+    coeffients = get_coefficients(get_similarity(get_distance(new_point,data_points)))
+    weighted_price = 0.0
+
+    for index in range(len(data_points)):
+        weighted_price += coeffients[index]*data_points[index].price
+    
+    return weighted_price
 
 
+a = Schema("1",500,50)
+b = Schema("2",600, 60)
+c= Schema("3",700,70)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# a = Schema("1",500,50)
-# b = Schema("2",600, 60)
-# c= Schema("3",700,70)
-
-# print(get_weighted_price(Schema("3",560,0),[a,b]))
+print(get_weighted_price(Schema("3",560,0),[a,b,c]))
 
 
 
