@@ -1,6 +1,6 @@
 from datasets import load_from_disk
 
-PATH = "/home/tarran/compsci/tuts/encoder-decoder/dataset"
+PATH = "" # insert your desired path
 
 dataset = load_from_disk(PATH)
 
