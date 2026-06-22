@@ -21,7 +21,7 @@ class AttentionHead(nn.Module):
         self.W_V = nn.Linear(embedding_dimension, head_dimension, bias=False)
 
     def forward(self, X: torch.Tensor, mask: torch.Tensor = None) -> torch.Tensor: #type:ignore
-        Q = self.W_Q(X)
+        Q = self.W_Q(X) # X @ WQ
         K = self.W_K(X)
         V = self.W_V(X)
 

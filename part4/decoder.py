@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from part4.encoder import MultiHeadAttention, FeedForward
+from encoder import MultiHeadAttention, FeedForward
 
 # ---------------------------------------------------------
 # Cross-attention (decoder attends to encoder output)
